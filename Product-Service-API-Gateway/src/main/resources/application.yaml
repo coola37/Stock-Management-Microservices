@@ -1,0 +1,65 @@
+spring:
+  application:
+    name: zuul-edge-server
+  profiles:
+    active: localhost
+  main:
+    web-application-type: reactive
+  cloud:
+    gateway:
+      routes:
+        - id: product-service
+          uri: lb://product-service/
+          predicates:
+            - Path=/api/1.0/product/**
+        - id: product-cache-service
+          uri: lb://product-cache-service/
+          predicates:
+            - Path=/api/1.0/product-cache/**
+
+info:
+  component: Zuul Edge Server
+
+server:
+  port: 8762
+
+endpoints:
+  routes:
+    sensitive: false
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            enabled: true
+            timeoutInMilliseconds: 60000
+---
+spring:
+  config:
+    activate:
+      on-profile: localhost
+
+eureka:
+  client:
+    service-url:
+      default-zone: http://localhost:8761/eureka
+  instance:
+    instance-id: ${spring.application.name}:${random.uuid}
+    prefer-ip-address: true
+
+---
+spring:
+  config:
+    activate:
+      on-profile: stage
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka-server:8761/eureka
+  instance:
+    prefer-ip-address: true
+    lease-renewal-interval-in-seconds: 10
+    instance-id: ${spring.application.name}:${random.uuid}

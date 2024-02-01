@@ -1,0 +1,18 @@
+version: '3.3'
+ 
+services:
+  product-service:
+    hostname: product-service
+    image: product-service:0.0.1
+    networks:
+      - stock-management-network-backend
+    expose:
+      - 9788
+    ports:
+      - 9788:9788
+    environment:
+      SPRING_PROFILES_ACTIVE: stage
+    entrypoint: ["java","-jar","app.jar"]
+ 
+networks:
+  stock-management-network-backend:

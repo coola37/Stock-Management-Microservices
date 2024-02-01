@@ -1,0 +1,18 @@
+version: '3.3'
+
+services:
+  eureka-server:
+    hostname: eureka-server
+    image: eureka-server:0.0.1
+    networks:
+      - stock-management-network-backend
+    expose: 
+      - 8761
+    ports:
+      - 8761:8761
+    environment:
+      SPRING_PROFILES_ACTIVE: stage
+    entrypoint: ["java","-jar","app.jar"]
+
+networks: 
+  stock-management-network-backend:

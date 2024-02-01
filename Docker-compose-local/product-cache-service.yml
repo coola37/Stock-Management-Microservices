@@ -1,0 +1,18 @@
+version: '3.3'
+ 
+services:
+  product-cache-service:
+    hostname: product-cache-service
+    image: product-cache-service:0.0.1
+    networks:
+      - stock-management-network-backend
+    expose:
+      - 9791
+    ports:
+      - 9791:9791
+    environment:
+      SPRING_PROFILES_ACTIVE: stage
+    entrypoint: ["java","-jar","app.jar"]
+ 
+networks:
+  stock-management-network-backend:

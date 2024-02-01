@@ -1,0 +1,39 @@
+version: '3.3'
+
+services:
+  mysql-db:
+    container_name: mysql
+    hostname: root
+    image: mysql:latest
+    volumes:
+      - my-db:/var/lib/data
+    networks:
+      - stock-management-network-backend
+    expose:
+      - 3306
+    ports:
+      - 3306:3306
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+        delay: 20s
+        max_attempts: 3
+        window: 120s
+      resources:
+        reservations:
+          cpus: "0.50"
+          memory: 512m
+        limits:
+          cpus: "1.0"
+          memory: 1G
+    environment:  
+      MYSQL_DATABASE: stock_management
+      MYSQL_ROOT_USER: root
+      MYSQL_ROOT_PASSWORD: 1234
+volumes:
+  my-db:
+
+networks:
+  stock-management-network-backend:
+

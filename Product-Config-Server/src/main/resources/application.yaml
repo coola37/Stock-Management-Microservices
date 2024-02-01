@@ -1,0 +1,40 @@
+spring:
+  application:
+    name: config-server
+  profiles:
+    active: localhost
+
+info:
+  component: Config Server
+
+---
+spring:
+  config:
+    activate:
+      on-profile: localhost
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/Coola37/stockmanagement-configs.git
+logging:
+  level:
+    root: debug
+server:
+  port: 8888
+
+---
+spring:
+  config:
+    activate:
+      on-profile: stage
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/Coola37/stockmanagement-configs.git
+logging:
+  level:
+    root: debug
+server:
+  port: 8888
