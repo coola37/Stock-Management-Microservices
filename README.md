@@ -1,20 +1,9 @@
 # Tools and Libraries:
-## Backend
-<p> Microservices </p>
-<p> Spring Boot </p>
-<p> Spring Cloud </p>
-<p> Spring Security </p>
-<p> Spring Data Jpa </p>
-<p> JSON Web Token </p>
-<p>H2 Embedded Database</p> 
+<p> Spring Boot , Spring Data, Spring Cloud </p>
+<p> Hibernate, JPA </p>
+<p>MySQL</p> 
 <p>Redis </p>
-
-## Frontend
-<p>React </p>
-<p>Context </p>
-<p>Hooks </p>
-<p>Redux </p>
-<p>React Router </p>
+<p>Docker </p>
 
 
 
