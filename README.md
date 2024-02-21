@@ -1,9 +1,22 @@
 # Tools and Libraries:
-<p> Spring Boot , Spring Data, Spring Cloud </p>
-<p> Hibernate, JPA </p>
-<p>MySQL</p> 
+## Backend
+<p> Microservices </p>
+<p> Spring Boot </p>
+<p> Spring Cloud </p>
+<p> Spring Security </p>
+<p> Spring Data Jpa </p>
+<p> JSON Web Token </p>
+<p>H2 Embedded Database</p> 
 <p>Redis </p>
-<p>Docker </p>
+
+## Frontend
+<p>React </p>
+<p>Context </p>
+<p>Hooks </p>
+<p>Redux </p>
+<p>React Router </p>
+
+
 
 ![post](https://github.com/coola37/Stock-Management-Microservices/assets/110453767/dd8a9606-9224-4ca7-86d7-488793a5dac2)
 ![put](https://github.com/coola37/Stock-Management-Microservices/assets/110453767/61b9fe51-86d6-44d3-a721-a592a0d7ca7c)
